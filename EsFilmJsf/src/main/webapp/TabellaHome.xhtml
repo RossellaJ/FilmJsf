@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+  <h:outputStylesheet library="css" name="tabelle.css"/>
+</h:head>
+<h:body>
+
+<h1>Home: Tabella dei Film</h1>
+
+<h:form>
+	<h:commandButton value="Aggiungi" action="AggiungiFilm" /> 
+	<h:dataTable value="#{filmController.listaFilm}" var="tempFilm" Styleclass="demo-table" 
+	headerClass="demo-table-header" RowClasses="demo-table-odd-row">
+		<h:column>
+			<f:facet name="header">Titolo</f:facet>
+			#{tempFilm.titolo}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Cognome</f:facet>
+			#{tempFilm.dataUscita}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Matricola</f:facet>
+			#{tempFilm.regista}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Matricola</f:facet>
+			#{tempFilm.genere}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Matricola</f:facet>
+			#{tempFilm.codiceFilm}
+		</h:column>
+		<h:column>
+		<h:commandLink value="Edit" action="EditPage">		</h:commandLink>
+		</h:column>
+		
+	</h:dataTable>
+
+</h:form>
+</h:body>
+</html>
