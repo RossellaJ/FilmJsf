@@ -5,7 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 
+@Entity
 @ManagedBean(name="film",eager=true)
 public class Film implements Serializable{
 
@@ -14,12 +20,17 @@ public class Film implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long idFilm;
+	
 	private String titolo;
-	private Integer dataUscita;
+	private String dataUscita;
 	private String regista;
 	private String genere;
 	private String codiceFilm;
 	
+	@Transient
 	private List<String> listaGeneri;
 	
 	
@@ -37,7 +48,7 @@ public class Film implements Serializable{
 	}
 
 
-	public Film(String titolo, Integer dataUscita, String regista,
+	public Film(String titolo, String dataUscita, String regista,
 			String genere, String codiceFilm) {
 	
 		this.titolo = titolo;
@@ -58,12 +69,18 @@ public class Film implements Serializable{
 	}
 
 
-	public Integer getDataUscita() {
+	
+
+
+	
+
+
+	public String getDataUscita() {
 		return dataUscita;
 	}
 
 
-	public void setDataUscita(Integer dataUscita) {
+	public void setDataUscita(String dataUscita) {
 		this.dataUscita = dataUscita;
 	}
 
@@ -106,4 +123,18 @@ public class Film implements Serializable{
 	public void setListaGeneri(List<String> listaGeneri) {
 		this.listaGeneri = listaGeneri;
 	}
+
+
+	public long getIdFilm() {
+		return idFilm;
+	}
+
+
+	public void setIdFilm(long idFilm) {
+		this.idFilm = idFilm;
+	}
+
+
+	
+	
 }

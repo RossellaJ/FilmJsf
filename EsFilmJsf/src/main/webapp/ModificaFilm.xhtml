@@ -16,16 +16,18 @@
           }
 
        </style>
-<h1>Aggiungi Film</h1>
+<h1>Modifica Film</h1>
 </h:head>
 <h:body>
 	<h:form>
 	
+	<h:inputHidden id="idFilm" value="#{film.idFilm}"/>
+	
 	Titolo:	<h:inputText id="titolo" value="#{film.titolo}" 
 		label="tit"
 		required="true"
-		requiredMessage="Questo campo è obbligatorio" /> <!-- required=obbrigatorio da compilare collegato al messaggio for usetrname in caso non lo compilo, OPPURE si legge il messaggio a fianco-->
-		<h:message for="titolo" styleClass="colori"></h:message> <!-- da messaggio se non compilo username -->
+		requiredMessage="Questo campo è obbligatorio" /> 
+		<h:message for="titolo" styleClass="colori"/>
 		<br/>
 		
 		
@@ -42,7 +44,7 @@
 		label="reg"
 		required="true"
 		requiredMessage="Questo campo è obbligatorio" /> 
-		<h:message for="regista" styleClass="colori"></h:message> 
+		<h:message for="regista" styleClass="colori"/>
 		<br/>
 
 
@@ -62,12 +64,17 @@
 		<h:message for="codiceFilm" styleClass="colori"/>
 		<br/>
 		
-		<h:commandButton value="Registra" action="#{filmController.aggiungiFilm(film)}"/>
+		<h:commandButton value="Modifica" action="#{filmController.aggiornaFilm(film)}"/>
 	
 	
 	
 	</h:form>
 
 </h:body>
+
+
+
+
+
 
 </html>

@@ -38,8 +38,16 @@
 			#{tempFilm.codiceFilm}
 		</h:column>
 		<h:column>
-		<h:commandLink value="Edit" action="EditPage">		</h:commandLink>
+			<f:facet name="header">Azione</f:facet>
+			<h:commandButton 	value="Edit" 
+						    action="#{filmController.modificaFilm(tempFilm.idFilm)}"
+						    onclick="if(!confirm('Sei sicuro di voler modificare il Film?'))return false"/>
+			<h:commandButton 	value="&nbsp;&nbsp;Delete" 
+						    action="#{filmController.eliminaFilm(tempFilm)}"
+						    onclick="if(!confirm('Sei sicuro di voler cancellare il Film?'))return false"/>
+		
 		</h:column>
+		
 		
 	</h:dataTable>
 
